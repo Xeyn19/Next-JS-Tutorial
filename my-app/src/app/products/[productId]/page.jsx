@@ -8,7 +8,9 @@ export const generateMetadata = async ({params}) => {
         }, 100)
     })
     return {
-        title: `Product ${title}`,
+        title: {
+            absolute:`Product ${title}`,
+        }
     }
 }
 
