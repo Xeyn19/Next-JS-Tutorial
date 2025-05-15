@@ -2,7 +2,8 @@ import React from 'react'
 
 const Footer = () => {
   return (
-     <footer style={{
+     <footer className='w-full'
+     style={{
           backgroundColor: "ghostwhite",
           padding: "1rem"
         }}>
