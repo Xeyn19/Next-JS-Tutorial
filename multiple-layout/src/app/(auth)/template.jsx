@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
+import { useState } from "react";
 
 import Footer from "../components/Footer";
 import Link from "next/link";
@@ -24,13 +25,21 @@ const navLinks = [
 
 export default function AuthLayout({ children }) {
   const pathname = usePathname();
+  const [input, setInput] = useState("");
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <>
+
           <div className="flex flex-col justify-center min-h-screen items-center space-y-2">
+
+          <div className="">
+            <input className="shadow-lg bg-slate-100 outline-none px-5 py-3"
+            type="text" placeholder="type something.." value={input} onChange={(e) => setInput(e.target.value)} />
+          </div>
+
           {navLinks.map((link) => (
             <Link className={`py-3 px-5 
               ${pathname === link.href 
