@@ -1,20 +1,28 @@
-import { redirect } from "next/navigation";
-
 export const generateMetadata = async ({params}) => {
-    const {reviewId}= await params;
-    const {productId} = await params;
+    const {reviewId, productId} = await params;
 
 
     return {
-        title:`Review ${reviewId} and Product ${productId}`
+        title:{
+            absolute:`Review ${reviewId} and Product ${productId}`
+        }
     }
 }
 
 export default async function ReviewsDetails ({params}) {
-    const {reviewId, productId}= await params;
-    if(parseInt(reviewId > 1000)){
-        redirect('/products')
+    const {reviewId, productId} = await params;
+ 
+    if(parseInt(productId) > 1000 && parseInt(reviewId) > 1500){
+        throw new Error(`Error Product${productId} & Review ${reviewId}`)
     }
-
-    return <h1>Reviews for {reviewId} and Product {productId}</h1>
+    else if(parseInt(productId) > 1000){
+        throw new Error(`Error Product ${productId} `)
+    }
+    else if(parseInt(reviewId) > 1500){
+        throw new Error(`Error review ${reviewId}`)
+    }
+ 
+    return(
+        <h1>Reviews for {reviewId} and Product {productId}</h1>
+    ) 
 }

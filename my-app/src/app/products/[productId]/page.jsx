@@ -7,6 +7,8 @@ export const generateMetadata = async ({params}) => {
             resolve(`Iphone ${productId}`)
         }, 100)
     })
+ 
+
     return {
         title: {
             absolute:`Product ${title}`,
@@ -17,5 +19,8 @@ export const generateMetadata = async ({params}) => {
 export default async function ProductDetails ({params}){
     const {productId} = await params;
 
+    if(parseInt(productId) > 1000){
+        throw new Error(`Error Product ${productId}`)
+    }
     return <h1>Details About Product {productId}</h1>
  }
