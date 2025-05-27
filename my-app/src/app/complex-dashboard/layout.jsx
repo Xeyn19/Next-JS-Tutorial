@@ -1,5 +1,7 @@
-export default function ComplexDashboardLayout ({children, users, notifications, revenue}){
-    return (
+export default function ComplexDashboardLayout ({children, users, notifications, revenue, login}){
+    const isLoggIn = true;
+
+    return isLoggIn ? (
         <div className="">
             <div className="flex justify-center items-center min-h-screen ">
             <div className="grid grid-cols-3">
@@ -19,5 +21,7 @@ export default function ComplexDashboardLayout ({children, users, notifications,
             </div>
         </div>
 
+    ) : (
+        login
     )
 }
