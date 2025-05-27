@@ -7,7 +7,7 @@ export default function ArchivedNotifications (){
         <div className="self-center">
            <h1 className="text-md font-medium">Archived Notifications</h1>
            <div className="">
-            <Link className="hover:underline"
+            <Link className="hover:underline" replace
             href="/complex-dashboard">Default</Link>
            </div>
         </div>
