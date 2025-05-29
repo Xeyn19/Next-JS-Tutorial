@@ -14,7 +14,7 @@ export default function Home() {
             <Image
               alt={name}
               src={src}
-              className="w-full object-cover aspect-square"
+              className="w-full object-cover aspect-square hover:scale-110 transition-transform duration-100 ease-in-out"
             />
           </Link>
         ))}
